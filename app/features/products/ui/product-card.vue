@@ -31,6 +31,8 @@ const selectedSnap = ref(0)
 const snapCount = computed(() => carouselApi.value?.scrollSnapList().length ?? 0)
 
 function onInitApi(api: CarouselApi) {
+  if (!api) return
+
   carouselApi.value = api
 
   const onSelect = () => {
@@ -49,7 +51,7 @@ function scrollToSnap(index: number) {
 
 <template>
   <article
-    class="group relative flex h-full flex-col overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-shadow hover:shadow-md"
+    class="group p-2 relative flex h-full flex-col overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-shadow hover:shadow-md"
   >
     <!-- Карусель фотографий товара -->
     <Carousel :opts="{loop: true}" @init-api="onInitApi">
@@ -59,7 +61,7 @@ function scrollToSnap(index: number) {
           :key="index"
           class="p-0"
         >
-          <div class="aspect-square bg-muted">
+          <div class="aspect-square bg-muted rounded-t-md overflow-hidden">
             <img
               :src="image"
               :alt="`${product.title} — фото ${index + 1}`"
@@ -71,9 +73,6 @@ function scrollToSnap(index: number) {
       </CarouselContent>
 
       <template v-if="product.images.length > 1">
-        <!-- Стрелки появляются при наведении на карточку; active-вариант сохраняет
-             вертикальное центрирование (-translate-y-1/2), чтобы при нажатии не было прыжка:
-             press-эффект кнопки (translate-y-px) иначе подменяет смещение центрирования -->
         <CarouselPrevious
           class="active:-translate-y-1/2! hidden md:flex left-2 bg-background/80 opacity-0 shadow-md transition-opacity group-hover:opacity-100"
         />
@@ -97,7 +96,7 @@ function scrollToSnap(index: number) {
       </template>
     </Carousel>
 
-    <div class="flex flex-col gap-1.5 p-3">
+    <div class="flex flex-col gap-1 mt-2">
       <!-- Продавец -->
       <span class="truncate text-xs text-muted-foreground">{{ product.sellerName }}</span>
 
