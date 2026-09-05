@@ -6,12 +6,12 @@ withDefaults(defineProps<{ placeholder?: string }>(), { placeholder: 'Поиск
 </script>
 
 <template>
-  <form class="flex w-full items-center gap-2" @submit.prevent>
+  <form class="flex w-full items-center bg-accent p-1 rounded-xl" @submit.prevent>
     <Input
       type="search"
       :placeholder="placeholder"
       aria-label="Поисковый запрос"
-      class="flex-1"
+      class="flex-1 bg-background focus-visible:border-none focus-visible:ring-0"
     />
     <Button type="submit" size="icon" aria-label="Искать" title="Искать">
       <SearchIcon class="size-4" />
