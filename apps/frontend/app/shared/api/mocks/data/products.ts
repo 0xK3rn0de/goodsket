@@ -1,10 +1,9 @@
-// Слой features, слайс products, сегмент model — демо-данные каталога.
-// Заглушка до появления сегмента api: сервер вернёт те же сущности Product.
-import type { Product } from './types'
+// Слой shared, сегмент api/mocks — мок-данные продуктов.
+import type { Product } from '~/features/product/model/types'
 
 export const mockProducts: Product[] = [
   {
-    id: 1,
+    id: '1',
     images: [
       'https://picsum.photos/seed/goodket-1a/480',
       'https://picsum.photos/seed/goodket-1b/480',
@@ -19,7 +18,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 132,
   },
   {
-    id: 2,
+    id: '2',
     images: ['https://picsum.photos/seed/goodket-2a/480'],
     sellerName: 'Хвостовые истории',
     title: 'Ушки лисы на обруче',
@@ -28,7 +27,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 3,
   },
   {
-    id: 3,
+    id: '3',
     images: [
       'https://picsum.photos/seed/goodket-3a/480',
       'https://picsum.photos/seed/goodket-3b/480',
@@ -41,7 +40,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 57,
   },
   {
-    id: 4,
+    id: '4',
     images: [
       'https://picsum.photos/seed/goodket-4a/480',
       'https://picsum.photos/seed/goodket-4b/480',
@@ -54,7 +53,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 214,
   },
   {
-    id: 5,
+    id: '5',
     images: ['https://picsum.photos/seed/goodket-5a/480'],
     sellerName: 'FurStyle',
     title: 'Ошейник-чокер с колокольчиком, бархат',
@@ -64,7 +63,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 11,
   },
   {
-    id: 6,
+    id: '6',
     images: [
       'https://picsum.photos/seed/goodket-6a/480',
       'https://picsum.photos/seed/goodket-6b/480',
@@ -76,7 +75,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 21,
   },
   {
-    id: 7,
+    id: '7',
     images: [
       'https://picsum.photos/seed/goodket-7a/480',
       'https://picsum.photos/seed/goodket-7b/480',
@@ -90,7 +89,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 68,
   },
   {
-    id: 8,
+    id: '8',
     images: ['https://picsum.photos/seed/goodket-8a/480'],
     sellerName: 'Хвостовые истории',
     title: 'Носки с подушечками лапок, набор 3 пары',
@@ -99,7 +98,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 1,
   },
   {
-    id: 9,
+    id: '9',
     images: [
       'https://picsum.photos/seed/goodket-9a/480',
       'https://picsum.photos/seed/goodket-9b/480',
@@ -111,7 +110,7 @@ export const mockProducts: Product[] = [
     reviewsCount: 8,
   },
   {
-    id: 10,
+    id: '10',
     images: [
       'https://picsum.photos/seed/goodket-10a/480',
       'https://picsum.photos/seed/goodket-10b/480',

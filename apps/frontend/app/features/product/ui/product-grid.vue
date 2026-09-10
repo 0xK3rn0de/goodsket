@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Слой features, слайс products, сегмент ui — переиспользуемая сетка карточек товара.
 // Адаптивная раскладка: 2 колонки на мобильных и до 5 на широких экранах.
-import type { Product } from '@/features/products/model/types'
+import type { Product } from '@/features/product/model/types'
 import ProductCard from './product-card.vue'
 
 defineProps<{

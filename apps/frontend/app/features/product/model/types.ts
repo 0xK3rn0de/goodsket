@@ -1,7 +1,7 @@
 // Слой features, слайс products, сегмент model — типы данных слайса.
 
 export interface Product {
-  id: number
+  id: string
   /** Фотографии товара */
   images: string[]
   /** Название продавца */
