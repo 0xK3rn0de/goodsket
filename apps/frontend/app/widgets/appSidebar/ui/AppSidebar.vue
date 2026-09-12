@@ -2,6 +2,17 @@
 import { ChevronRight } from "@lucide/vue";
 import { data } from "../config/sidebarConfig";
 
+const route = useRoute();
+
+const isLinkActive = (url: string) => {
+  if (!url || url === "#") return false;
+  return route.path === url || route.path.startsWith(`${url}/`);
+};
+
+const hasActiveChild = (item: (typeof data)[number]) => {
+  return item.items?.some((sub) => isLinkActive(sub.url)) ?? false;
+};
+
 </script>
 
 <template>
@@ -29,14 +40,16 @@ import { data } from "../config/sidebarConfig";
                 v-if="item.items?.length"
                 :title="item.title"
                 class="group/collapsible"
+                :default-open="hasActiveChild(item)"
               >
                 <SidebarGroupLabel
                   as-child
-                  class="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  class="group/label text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground"
+                  :data-active="hasActiveChild(item) || undefined"
                 >
                   <CollapsibleTrigger class="w-full">
                     <component :is="item.icon" class="size-4 shrink-0" />
-                    {{ item.title }}
+                    <span class="ml-2 font-normal">{{ item.title }}</span>
                     <ChevronRight
                       class="ml-auto size-4 transition-transform group-data-[state=open]/collapsible:rotate-90"
                     />
@@ -50,7 +63,7 @@ import { data } from "../config/sidebarConfig";
                     >
                       <SidebarMenuSubButton
                         as-child
-                        :is-active="subItem.isActive"
+                        :is-active="subItem.isActive ?? isLinkActive(subItem.url)"
                       >
                         <NuxtLink :to="subItem.url">
                           <span>{{ subItem.title }}</span>
@@ -63,7 +76,11 @@ import { data } from "../config/sidebarConfig";
 
               <!-- Одиночный пункт без подразделов — просто ссылка -->
               <SidebarMenuItem v-else>
-                <SidebarMenuButton as-child :tooltip="item.title">
+                <SidebarMenuButton
+                  as-child
+                  :tooltip="item.title"
+                  :is-active="isLinkActive(item.url)"
+                >
                   <NuxtLink :to="item.url">
                     <component :is="item.icon" class="size-4 shrink-0" />
                     <span>{{ item.title }}</span>
