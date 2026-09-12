@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// Слой shared, сегмент ui — поисковая строка с кнопкой поиска.
-// Без логики: значение не обрабатывается, отправка формы заблокирована (@submit.prevent),
-// поисковая выдача появится позже (features-слой).
 withDefaults(defineProps<{ placeholder?: string }>(), { placeholder: 'Поиск' })
 </script>
 

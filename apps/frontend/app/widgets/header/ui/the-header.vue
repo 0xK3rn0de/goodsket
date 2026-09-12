@@ -3,10 +3,10 @@ import { BoxIcon, CartIcon, HeartIcon, UserIcon } from '#components'
 
 // Список иконок навигации: клик ведёт на соответствующую страницу.
 const links = [
-  { to: '/profile', label: 'Профиль', icon: UserIcon },
-  { to: '/cart', label: 'Корзина', icon: CartIcon },
-  { to: '/orders', label: 'Заказы', icon: BoxIcon },
-  { to: '/favorites', label: 'Избранное', icon: HeartIcon },
+  { to: '/user/profile', label: 'Профиль', icon: UserIcon },
+  { to: '/user/cart', label: 'Корзина', icon: CartIcon },
+  { to: '/user/orders', label: 'Заказы', icon: BoxIcon },
+  { to: '/user/favorites', label: 'Избранное', icon: HeartIcon },
 ]
 </script>
 
@@ -20,6 +20,11 @@ const links = [
     <div class="flex flex-1 justify-center">
       <SearchField class="w-full max-w-xl" />
     </div>
+
+    <!-- TEMP: временная кнопка перехода к продавцу -->
+    <Button as-child>
+      <NuxtLink to="/seller/dashboard">Стать продавцом</NuxtLink>
+    </Button>
 
     <nav aria-label="Основная навигация" class="shrink-0">
       <ul class="grid grid-cols-4 gap-2 xl:gap-0">
