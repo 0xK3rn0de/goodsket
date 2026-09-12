@@ -28,10 +28,13 @@ interface NavGroup {
   items?: NavSubItem[];
 }
 
+const sellerPrefix = "/seller";
+const sellerCatalogPrefix = `${sellerPrefix}/catalog`;
+
 export const data: NavGroup[] = [
   {
     title: "Дашборд",
-    url: "/seller/dashboard",
+    url: `${sellerPrefix}/dashboard`,
     icon: HouseIcon,
   },
   {
@@ -41,7 +44,7 @@ export const data: NavGroup[] = [
     items: [
       {
         title: "Товары",
-        url: "#",
+        url: `${sellerCatalogPrefix}/products`,
       },
       {
         title: "Категории",
