@@ -22,11 +22,13 @@ export default defineNuxtConfig({
   // Слой app: глобальные стили приложения (Tailwind + кастомные стили)
   css: ['~/assets/styles/main.css'],
 
-  // Автосканирование UI: ui-кит (shared) и виджеты
+  // Автосканирование UI: ui-кит (shared) и виджеты.
+  // pattern '**/*.vue' — сканируем только SFC, чтобы index.ts / use*.ts / interface.ts
+  // не регистрировались как компоненты (у них нет default-экспорта → undefined vnode).
   components: [
     '~/components',
-    { path: '~/shared/ui', pathPrefix: false },
-    { path: '~/widgets', pathPrefix: false },
+    { path: '~/shared/ui', pathPrefix: false, pattern: '**/*.vue' },
+    { path: '~/widgets', pathPrefix: false, pattern: '**/*.vue' },
   ],
 
   // Автосканирование логики: сегменты shared и модели слайсов
